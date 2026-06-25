@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bit"
+version = "0.1.0"
+description = "Simple MCMC model fitting using emcee"
+authors = [{name = 'Sam and Cairns'}]
+dependencies = [
+    "numpy",
+    "emcee",
+    "matplotlib"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
