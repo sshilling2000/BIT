@@ -1,7 +1,7 @@
 import numpy as np #pip install numpy
 import emcee # https://emcee.readthedocs.io/en/stable/user/install/ conda install -c conda-forge emcee
 
-#class for basic gaussian likelihood
+#class for basic gaussian likelihoods
 class GaussianLikelihood:
 
     #constructor to initialize the data and model function
