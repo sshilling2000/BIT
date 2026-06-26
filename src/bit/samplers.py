@@ -30,7 +30,7 @@ def log_prob(theta, x, y, yerr):
     return lp + log_likelihood(theta, x, y, yerr)
 
 #running the sampler
-def run_sampler(log_prob_fn, initial_pos, n_steps=2000, n_walkers=32, args=()):
+def run_sampler(log_prob_fn, initial_guess, n_steps=2000, n_walkers=32, args=()):
     """
     Run emcee sampler.
 
@@ -38,14 +38,14 @@ def run_sampler(log_prob_fn, initial_pos, n_steps=2000, n_walkers=32, args=()):
     ----------
     log_prob_fn : function
         Function(theta, *args) -> log probability
-    initial_pos : array-like
+    initial_guess : array-like
         Initial guess for parameters
     """
 
-    ndim = len(initial_pos)
+    ndim = len(initial_guess)
 
     # small random perturbation around initial guess
-    pos = initial_pos + 1e-4 * np.random.randn(n_walkers, ndim)
+    pos = initial_guess + 1e-4 * np.random.randn(n_walkers, ndim)
 
     sampler = emcee.EnsembleSampler(
         n_walkers,
