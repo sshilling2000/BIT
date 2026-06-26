@@ -23,7 +23,7 @@ line = model([m_true,c_true], x)
 y = line + np.random.normal(0, yerr, len(x))
 
 
-#plot fake data
+# plot fake data
 fig, axes = plt.subplots(1, figsize=(7, 7))
 axes.errorbar(x=x,y=y,yerr=yerr,fmt='.',label='Data with noise from the linear model')
 axes.plot(x,line,label='Linear model: \nm_true = {}, c_true = {}'.format(m_true,c_true))
